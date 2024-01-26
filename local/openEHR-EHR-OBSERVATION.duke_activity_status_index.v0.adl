@@ -1,0 +1,348 @@
+archetype (adl_version=1.4; uid=14496039-5edc-4720-8c84-ed3fafbcad07)
+	openEHR-EHR-OBSERVATION.duke_activity_status_index.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["date"] = <"2023-12-31">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"74783d751bec3cf8595831d6d032342d">
+		["build_uid"] = <"335a2fad-2cbe-37b0-a0f3-e1794530fe7a">
+		["ip_acknowledgements"] = <"This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyrighted material of the International Health Terminology Standards Development Organisation (IHTSDO). Where an implementation of this artefact makes use of SNOMED CT content, the implementer must have the appropriate SNOMED CT Affiliate license - for more information contact https://www.snomed.org/snomed-ct/get-snomed or info@snomed.org.">
+	>
+
+definition
+	OBSERVATION[at0000] matches {    -- Duke Activity Status Index
+		data matches {
+			HISTORY[at0001] matches {    -- History
+				events cardinality matches {1..*; unordered} matches {
+					POINT_EVENT[at0002] occurrences matches {0..*} matches {    -- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {    -- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0015] occurrences matches {0..1} matches {    -- Take care of self
+										value matches {
+											0|[local::at0016],
+											1|[local::at0017]
+										}
+									}
+									ELEMENT[at0018] occurrences matches {0..1} matches {    -- Walk indoors
+										value matches {
+											0|[local::at0033],
+											1|[local::at0034]
+										}
+									}
+									ELEMENT[at0019] occurrences matches {0..1} matches {    -- Walk 1–2 blocks on level ground
+										value matches {
+											0|[local::at0035],
+											1|[local::at0036]
+										}
+									}
+									ELEMENT[at0020] occurrences matches {0..1} matches {    -- Climb a flight of stairs or walk up a hill
+										value matches {
+											0|[local::at0037],
+											1|[local::at0038]
+										}
+									}
+									ELEMENT[at0021] occurrences matches {0..1} matches {    -- Run a short distance
+										value matches {
+											0|[local::at0039],
+											1|[local::at0040]
+										}
+									}
+									ELEMENT[at0022] occurrences matches {0..1} matches {    -- Do light work around the house
+										value matches {
+											0|[local::at0041],
+											1|[local::at0042]
+										}
+									}
+									ELEMENT[at0023] occurrences matches {0..1} matches {    -- Do moderate work around the house
+										value matches {
+											0|[local::at0043],
+											1|[local::at0044]
+										}
+									}
+									ELEMENT[at0024] occurrences matches {0..1} matches {    -- Do heavy work around the house
+										value matches {
+											0|[local::at0045],
+											1|[local::at0046]
+										}
+									}
+									ELEMENT[at0025] occurrences matches {0..1} matches {    -- Do yardwork
+										value matches {
+											0|[local::at0047],
+											1|[local::at0048]
+										}
+									}
+									ELEMENT[at0026] occurrences matches {0..1} matches {    -- Have sexual relations
+										value matches {
+											0|[local::at0049],
+											1|[local::at0050]
+										}
+									}
+									ELEMENT[at0027] occurrences matches {0..1} matches {    -- Participate in moderate recreational activities
+										value matches {
+											0|[local::at0051],
+											1|[local::at0052]
+										}
+									}
+									ELEMENT[at0028] occurrences matches {0..1} matches {    -- Participate in strenuous sports
+										value matches {
+											0|[local::at0053],
+											1|[local::at0054]
+										}
+									}
+									ELEMENT[at0056] occurrences matches {0..1} matches {    -- Total score
+										value matches {
+											DV_QUANTITY matches {*}
+										}
+									}
+									ELEMENT[at0030] occurrences matches {0..1} matches {    -- VO2 peak (mL/kg)
+										value matches {
+											DV_QUANTITY matches {*}
+										}
+										name matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[ac0001]
+												}
+											}
+										}
+									}
+									ELEMENT[at0032] occurrences matches {0..1} matches {    -- Metabolic equivalent of task
+										value matches {
+											DV_QUANTITY matches {*}
+										}
+										name matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[ac0003]
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0055] matches {*}    -- Item tree
+		}
+	}
+
+ontology
+	terminologies_available = <"SNOMED Clinical Terms Australian extension","SNOMED CT Clinical Findings">
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Duke Activity Status Index">
+					description = <"duke_activity_status_index">
+				>
+				["at0001"] = <
+					text = <"History">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"@ internal @">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0015"] = <
+					text = <"Take care of self">
+					description = <"">
+				>
+				["at0016"] = <
+					text = <"No">
+					description = <"">
+				>
+				["at0017"] = <
+					text = <"Yes">
+					description = <"">
+				>
+				["at0018"] = <
+					text = <"Walk indoors">
+					description = <"">
+				>
+				["at0019"] = <
+					text = <"Walk 1–2 blocks on level ground">
+					description = <"">
+				>
+				["at0020"] = <
+					text = <"Climb a flight of stairs or walk up a hill">
+					description = <"">
+				>
+				["at0021"] = <
+					text = <"Run a short distance">
+					description = <"">
+				>
+				["at0022"] = <
+					text = <"Do light work around the house">
+					description = <"">
+				>
+				["at0023"] = <
+					text = <"Do moderate work around the house">
+					description = <"">
+				>
+				["at0024"] = <
+					text = <"Do heavy work around the house">
+					description = <"">
+				>
+				["at0025"] = <
+					text = <"Do yardwork">
+					description = <"">
+				>
+				["at0026"] = <
+					text = <"Have sexual relations">
+					description = <"">
+				>
+				["at0027"] = <
+					text = <"Participate in moderate recreational activities">
+					description = <"">
+				>
+				["at0028"] = <
+					text = <"Participate in strenuous sports">
+					description = <"">
+				>
+				["at0030"] = <
+					text = <"VO2 peak (mL/kg)">
+					description = <"">
+				>
+				["at0032"] = <
+					text = <"Metabolic equivalent of task">
+					description = <"">
+				>
+				["at0033"] = <
+					text = <"No">
+					description = <"">
+				>
+				["at0034"] = <
+					text = <"Yes">
+					description = <"">
+				>
+				["at0035"] = <
+					text = <"No">
+					description = <"">
+				>
+				["at0036"] = <
+					text = <"Yes">
+					description = <"">
+				>
+				["at0037"] = <
+					text = <"No">
+					description = <"">
+				>
+				["at0038"] = <
+					text = <"Yes">
+					description = <"">
+				>
+				["at0039"] = <
+					text = <"No">
+					description = <"">
+				>
+				["at0040"] = <
+					text = <"Yes">
+					description = <"">
+				>
+				["at0041"] = <
+					text = <"No">
+					description = <"">
+				>
+				["at0042"] = <
+					text = <"Yes">
+					description = <"">
+				>
+				["at0043"] = <
+					text = <"No">
+					description = <"">
+				>
+				["at0044"] = <
+					text = <"Yes">
+					description = <"">
+				>
+				["at0045"] = <
+					text = <"No">
+					description = <"">
+				>
+				["at0046"] = <
+					text = <"Yes">
+					description = <"">
+				>
+				["at0047"] = <
+					text = <"No">
+					description = <"">
+				>
+				["at0048"] = <
+					text = <"Yes">
+					description = <"">
+				>
+				["at0049"] = <
+					text = <"No">
+					description = <"">
+				>
+				["at0050"] = <
+					text = <"Yes">
+					description = <"">
+				>
+				["at0051"] = <
+					text = <"No">
+					description = <"">
+				>
+				["at0052"] = <
+					text = <"Yes">
+					description = <"">
+				>
+				["at0053"] = <
+					text = <"No">
+					description = <"">
+				>
+				["at0054"] = <
+					text = <"Yes">
+					description = <"">
+				>
+				["at0055"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0056"] = <
+					text = <"Total score">
+					description = <"">
+				>
+			>
+		>
+	>
+	constraint_binding = <
+		["SNOMED Clinical Terms Australian extension"] = <
+			items = <
+				["ac0001"] = <terminology://fhir.hl7.org/CodeSystem?url=http://snomed.info/sct>
+			>
+		>
+		["SNOMED CT Clinical Findings"] = <
+			items = <
+				["ac0003"] = <terminology://fhir.hl7.org/ValueSet/$expand?url=http://hl7.org/fhir/ValueSet/clinical-findings>
+			>
+		>
+	>
