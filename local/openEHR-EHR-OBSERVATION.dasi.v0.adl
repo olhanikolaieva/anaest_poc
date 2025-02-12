@@ -26,10 +26,14 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"9098212d7ee7f07f974fd11e8806bd5a">
+		["MD5-CAM-1.0.1"] = <"36843720860291869fd9ffd19aa8aea7">
 		["build_uid"] = <"335a2fad-2cbe-37b0-a0f3-e1794530fe7a">
 		["ip_acknowledgements"] = <"This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyrighted material of the International Health Terminology Standards Development Organisation (IHTSDO). Where an implementation of this artefact makes use of SNOMED CT content, the implementer must have the appropriate SNOMED CT Affiliate license - for more information contact https://www.snomed.org/snomed-ct/get-snomed or info@snomed.org.">
-		["references"] = <"Hlatky MA, Boineau RE, Higginbotham MB, Lee KL, Mark DB, Califf RM, Cobb FR, Pryor DB. A brief self-administered questionnaire to determine functional capacity (the Duke Activity Status Index). Am J Cardiol. 1989 Sep 15;64(10):651-4. doi: 10.1016/0002-9149(89)90496-7. PMID: 2782256.">
+		["references"] = <"Hlatky MA, Boineau RE, Higginbotham MB, Lee KL, Mark DB, Califf RM, Cobb FR, Pryor DB. A brief self-administered questionnaire to determine functional capacity (the Duke Activity Status Index). Am J Cardiol. 1989 Sep 15;64(10):651-4. doi: 10.1016/0002-9149(89)90496-7. PMID: 2782256.
+
+Coutinho-Myrrha MA, Dias RC, Fernandes AA, Araújo CG, Hlatky MA, Pereira DG, Britto RR. Duke Activity Status Index for cardiovascular diseases: validation of the Portuguese translation. Arq Bras Cardiol. 2014 Apr;102(4):383-90. doi: 10.5935/abc.20140031. Epub 2014 Feb 17. PMID: 24652056; PMCID: PMC4028943.
+
+Eagle KA, Berger PB, Calkins H, Chaitman BR, Ewy GA, Fleischmann KE, Fleisher LA, Froehlich JB, Gusberg RJ, Leppo JA, Ryan T, Schlant RC, Winters WL Jr, Gibbons RJ, Antman EM, Alpert JS, Faxon DP, Fuster V, Gregoratos G, Jacobs AK, Hiratzka LF, Russell RO, Smith SC Jr; American College of Cardiology; American Heart Association. ACC/AHA guideline update for perioperative cardiovascular evaluation for noncardiac surgery--executive summary: a report of the American College of Cardiology/American Heart Association Task Force on Practice Guidelines (Committee to Update the 1996 Guidelines on Perioperative Cardiovascular Evaluation for Noncardiac Surgery). J Am Coll Cardiol. 2002 Feb 6;39(3):542-53. doi: 10.1016/s0735-1097(01)01788-0. Erratum in: J Am Coll Cardiol. 2006 Jun 6;47(11):2356. PMID: 11823097.">
 	>
 
 definition
@@ -59,7 +63,7 @@ definition
 											1|[local::at0036]
 										}
 									}
-									ELEMENT[at0020] occurrences matches {0..1} matches {    -- Climb a flight of stairs or walk up a hill
+									ELEMENT[at0020] occurrences matches {0..1} matches {    -- Climb stairs or walk uphill
 										value matches {
 											0|[local::at0037],
 											1|[local::at0038]
@@ -71,25 +75,25 @@ definition
 											1|[local::at0040]
 										}
 									}
-									ELEMENT[at0022] occurrences matches {0..1} matches {    -- Do light work around the house
+									ELEMENT[at0022] occurrences matches {0..1} matches {    -- Light work around the house
 										value matches {
 											0|[local::at0041],
 											1|[local::at0042]
 										}
 									}
-									ELEMENT[at0023] occurrences matches {0..1} matches {    -- Do moderate work around the house
+									ELEMENT[at0023] occurrences matches {0..1} matches {    -- Moderate work around the house
 										value matches {
 											0|[local::at0043],
 											1|[local::at0044]
 										}
 									}
-									ELEMENT[at0024] occurrences matches {0..1} matches {    -- Do heavy work around the house
+									ELEMENT[at0024] occurrences matches {0..1} matches {    -- Heavy work around the house
 										value matches {
 											0|[local::at0045],
 											1|[local::at0046]
 										}
 									}
-									ELEMENT[at0025] occurrences matches {0..1} matches {    -- Do yardwork
+									ELEMENT[at0025] occurrences matches {0..1} matches {    -- Yardwork
 										value matches {
 											0|[local::at0047],
 											1|[local::at0048]
@@ -101,7 +105,7 @@ definition
 											1|[local::at0050]
 										}
 									}
-									ELEMENT[at0027] occurrences matches {0..1} matches {    -- Participate in moderate recreational activities
+									ELEMENT[at0027] occurrences matches {0..1} matches {    -- Moderate recreational activities
 										value matches {
 											0|[local::at0051],
 											1|[local::at0052]
@@ -115,12 +119,30 @@ definition
 									}
 									ELEMENT[at0056] occurrences matches {0..1} matches {    -- Total score
 										value matches {
-											DV_QUANTITY matches {*}
+											C_DV_QUANTITY <
+												property = <[openehr::507]>
+												list = <
+													["1"] = <
+														units = <"1">
+														magnitude = <|0.0..58.2|>
+														precision = <|2|>
+													>
+												>
+											>
 										}
 									}
 									ELEMENT[at0030] occurrences matches {0..1} matches {    -- VO2 peak (mL/kg)
 										value matches {
-											DV_QUANTITY matches {*}
+											C_DV_QUANTITY <
+												property = <[openehr::507]>
+												list = <
+													["1"] = <
+														units = <"1">
+														magnitude = <|0.0..35.0|>
+														precision = <|2|>
+													>
+												>
+											>
 										}
 										name matches {
 											DV_CODED_TEXT matches {
@@ -132,7 +154,16 @@ definition
 									}
 									ELEMENT[at0032] occurrences matches {0..1} matches {    -- Metabolic equivalent of task
 										value matches {
-											DV_QUANTITY matches {*}
+											C_DV_QUANTITY <
+												property = <[openehr::507]>
+												list = <
+													["1"] = <
+														units = <"1">
+														magnitude = <|0.0..10.0|>
+														precision = <|2|>
+													>
+												>
+											>
 										}
 										name matches {
 											DV_CODED_TEXT matches {
@@ -150,7 +181,14 @@ definition
 			}
 		}
 		protocol matches {
-			ITEM_TREE[at0055] matches {*}    -- Item tree
+			ITEM_TREE[at0055] matches {    -- Item tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0057] occurrences matches {0..*} matches {    -- Extention
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
 		}
 	}
 
@@ -159,6 +197,10 @@ ontology
 	term_definitions = <
 		["en"] = <
 			items = <
+				["1"] = <
+					text = <"mL/kg">
+					description = <"1">
+				>
 				["at0000"] = <
 					text = <"Duke activity status index (DASI)">
 					description = <"A self-administered questionnaire designed to assess a patient's functional capacity by evaluating their ability to perform daily activities. Its primary purpose is to estimate the patient's peak oxygen consumption (VO2 max), a key indicator of cardiorespiratory fitness for risk stratification and treatment planning.">
@@ -177,7 +219,7 @@ ontology
 				>
 				["at0015"] = <
 					text = <"Take care of self">
-					description = <"">
+					description = <"Take care of yourself, that is, eating, dressing, bathing or using the toilet?">
 				>
 				["at0016"] = <
 					text = <"No">
@@ -189,47 +231,47 @@ ontology
 				>
 				["at0018"] = <
 					text = <"Walk indoors">
-					description = <"">
+					description = <"Walk indoors, such as around your house?">
 				>
 				["at0019"] = <
 					text = <"Walk 1–2 blocks on level ground">
-					description = <"">
+					description = <"Walk a block or two on level ground?">
 				>
 				["at0020"] = <
-					text = <"Climb a flight of stairs or walk up a hill">
-					description = <"">
+					text = <"Climb stairs or walk uphill">
+					description = <"Climb a flight of stairs or walk up a hill?">
 				>
 				["at0021"] = <
 					text = <"Run a short distance">
-					description = <"">
+					description = <"Run a short distance?">
 				>
 				["at0022"] = <
-					text = <"Do light work around the house">
-					description = <"">
+					text = <"Light work around the house">
+					description = <"Do light work around the house like dusting or washing dishes?">
 				>
 				["at0023"] = <
-					text = <"Do moderate work around the house">
-					description = <"">
+					text = <"Moderate work around the house">
+					description = <"Do moderate work around the house like vacuuming, sweeping floors, or carrying in groceries?">
 				>
 				["at0024"] = <
-					text = <"Do heavy work around the house">
-					description = <"">
+					text = <"Heavy work around the house">
+					description = <"Do heavy work around the house like scrubbing floors or lifting or moving heavy furniture?">
 				>
 				["at0025"] = <
-					text = <"Do yardwork">
-					description = <"">
+					text = <"Yardwork">
+					description = <"Do yardwork like raking leaves, weeding, or pushing a power mower?">
 				>
 				["at0026"] = <
 					text = <"Have sexual relations">
-					description = <"">
+					description = <"Have sexual relations?">
 				>
 				["at0027"] = <
-					text = <"Participate in moderate recreational activities">
-					description = <"">
+					text = <"Moderate recreational activities">
+					description = <"Participate in moderate recreational activities like golf, bowling, dancing, doubles tennis, or throwing a baseball or football?">
 				>
 				["at0028"] = <
 					text = <"Participate in strenuous sports">
-					description = <"">
+					description = <"Participate in strenuous sports like swimming, singles tennis, football, basketball, or skiing?">
 				>
 				["at0030"] = <
 					text = <"VO2 peak (mL/kg)">
@@ -333,6 +375,10 @@ ontology
 				>
 				["at0056"] = <
 					text = <"Total score">
+					description = <"">
+				>
+				["at0057"] = <
+					text = <"Extention">
 					description = <"">
 				>
 			>
