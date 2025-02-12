@@ -15,6 +15,9 @@ description
 	details = <
 		["en"] = <
 			language = <[ISO_639-1::en]>
+			purpose = <"To record the results for each activity parameter and the total score for the Duke activity status index (DASI).">
+			keywords = <"Duke activity status index, DASI, peak oxygen consumption, VO2 max, cardiorespiratory fitness, cardiology, risk stratification.", ...>
+			use = <"Use to record the results for each component parameter and their total sum for the Duke activity status index (DASI).">
 		>
 	>
 	other_details = <
@@ -23,17 +26,18 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"ebf7414f67d6362e4ce27f7b644e813b">
+		["MD5-CAM-1.0.1"] = <"9098212d7ee7f07f974fd11e8806bd5a">
 		["build_uid"] = <"335a2fad-2cbe-37b0-a0f3-e1794530fe7a">
 		["ip_acknowledgements"] = <"This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyrighted material of the International Health Terminology Standards Development Organisation (IHTSDO). Where an implementation of this artefact makes use of SNOMED CT content, the implementer must have the appropriate SNOMED CT Affiliate license - for more information contact https://www.snomed.org/snomed-ct/get-snomed or info@snomed.org.">
+		["references"] = <"Hlatky MA, Boineau RE, Higginbotham MB, Lee KL, Mark DB, Califf RM, Cobb FR, Pryor DB. A brief self-administered questionnaire to determine functional capacity (the Duke Activity Status Index). Am J Cardiol. 1989 Sep 15;64(10):651-4. doi: 10.1016/0002-9149(89)90496-7. PMID: 2782256.">
 	>
 
 definition
-	OBSERVATION[at0000] matches {    -- dasi
+	OBSERVATION[at0000] matches {    -- Duke activity status index (DASI)
 		data matches {
 			HISTORY[at0001] matches {    -- History
 				events cardinality matches {1..*; unordered} matches {
-					POINT_EVENT[at0002] occurrences matches {0..*} matches {    -- Any event
+					EVENT[at0002] occurrences matches {0..*} matches {    -- Any event
 						data matches {
 							ITEM_TREE[at0003] matches {    -- Tree
 								items cardinality matches {0..*; unordered} matches {
@@ -156,8 +160,8 @@ ontology
 		["en"] = <
 			items = <
 				["at0000"] = <
-					text = <"dasi">
-					description = <"duke_activity_status_index">
+					text = <"Duke activity status index (DASI)">
+					description = <"A self-administered questionnaire designed to assess a patient's functional capacity by evaluating their ability to perform daily activities. Its primary purpose is to estimate the patient's peak oxygen consumption (VO2 max), a key indicator of cardiorespiratory fitness for risk stratification and treatment planning.">
 				>
 				["at0001"] = <
 					text = <"History">
